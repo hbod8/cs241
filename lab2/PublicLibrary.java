@@ -2,20 +2,22 @@
 
 public class PublicLibrary<T> implements Library<T> {
 	public PublicLibrary(int size) {
-		Book[] bArr = new Book[size];
-		publicLibrary = (T[])bArr;
+		publicLibrary = new Book[size];
 	}
-	private final T[] publicLibrary;
+	private final Book[] publicLibrary;
+	private int next = 0;
 	//implement methods
 	public boolean add(T newEntry) {
 		// TODO
 		//Body to be defined. Implement this function for lab 2.
-		for (T entry : publicLibrary) {
+		for (Book entry : publicLibrary) {
 			if (entry.equals(newEntry)) {
 				return false;
 			}
 		}
 		// Add book.
+		publicLibrary[next] = (Book)newEntry;
+		next++;
 		return true;
 	}
 	
@@ -23,5 +25,10 @@ public class PublicLibrary<T> implements Library<T> {
 	public String toString() {
 		// TODO
 		//Concatenate information about all books in the public library.
+		String str = "";
+		for (Book b : publicLibrary) {
+			str += "Title:" + b.title + "\tAuthor:" + b.author + "\tYear:" + b.year + "\tISBN:" + b.isbn;
+		}
+		return str;
 	}
 }
