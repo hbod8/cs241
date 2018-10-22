@@ -10,14 +10,19 @@ public class PublicLibrary<T> implements Library<T> {
 	public boolean add(T newEntry) {
 		// TODO
 		//Body to be defined. Implement this function for lab 2.
-		for (Book entry : publicLibrary) {
-			if (entry.equals(newEntry)) {
+		//System.out.println(next);
+		for (int i = 0; i < next; i++) {
+			//System.out.println("Checking if " + publicLibrary[i].isbn + " is same as " + newEntry.toString());
+			if (publicLibrary[i].equals(newEntry)) {
+				//System.out.println("DUPLICATE!");
 				return false;
 			}
 		}
-		// Add book.
+		// Add book
+		//System.out.println("Adding " + newEntry.toString());
 		publicLibrary[next] = (Book)newEntry;
 		next++;
+		//System.out.println(next);
 		return true;
 	}
 	
@@ -26,8 +31,8 @@ public class PublicLibrary<T> implements Library<T> {
 		// TODO
 		//Concatenate information about all books in the public library.
 		String str = "";
-		for (Book b : publicLibrary) {
-			str += "Title:" + b.title + "\tAuthor:" + b.author + "\tYear:" + b.year + "\tISBN:" + b.isbn;
+		for (int i = 0; i < next; i++) {
+			str += "Title:" + publicLibrary[i].title + "\tAuthor:" + publicLibrary[i].author + "\tYear:" + publicLibrary[i].year + "\tISBN:" + publicLibrary[i].isbn + "\n";
 		}
 		return str;
 	}
