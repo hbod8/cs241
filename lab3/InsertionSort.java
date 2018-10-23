@@ -12,16 +12,17 @@ public class InsertionSort {
 	@return int[] Sorted array.
 	*/
 	public int[] insertionSort(int[] arr) {
-		int[] sorted = new int[arr.legth];
+		int[] sorted = new int[arr.length];
 		System.arraycopy(arr, 0, sorted, 0, arr.length);
 		for (int i = 1; i < sorted.length; i++) {
 			int j = i;
 			while (j > 0 && sorted[j-1] > sorted[j]) {
-				int t = sorted[j]
+				int t = sorted[j];
 				sorted[j] = sorted[j-1];
 				sorted[j-1] = t;
 				j--;
 			}
 		}
+		return sorted;
 	}
 }
