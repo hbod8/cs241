@@ -5,6 +5,8 @@ TestInsertionSort is used to test the effectiveness of InsertionSort.
 @since 23-Oct-18
 */
 import java.util.Random;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class TestInsertionSort {
 	/**
@@ -32,7 +34,8 @@ public class TestInsertionSort {
 	@return boolean True if both arrays have the same values.
 	*/
 	private static boolean sameElements(int[] a, int[] b) {
-		int[] elements = new int[max(a)];
+		int[] elements = new int[max(a) + 1];
+		// System.out.print(":" + Arrays.toString(a) + " : " + max(a));
 		for (int i = 0; i < a.length; i++) {
 			elements[a[i]]++;
 		}
@@ -53,8 +56,19 @@ public class TestInsertionSort {
 	Takes a set if integers from the command line to be tested with insertion sort.
 	*/
 	private static void testFromConsole() {
+		Scanner s = new Scanner(System.in);
 		while (true) {
-			
+			System.out.print("Array Length? >");
+			int[] input = new int[s.nextInt()];
+			System.out.print("\nNumbers to be sorted (separate with spaces): ");
+			for (int i = 0; i < input.length; i++) {
+				input[i] = s.nextInt();
+			}
+			System.out.print("\nInput array :\t" + Arrays.toString(input) + "\n");
+			InsertionSort is = new InsertionSort();
+			int[] sorted = is.insertionSort(input);
+			System.out.print("Sorted array :\t" + Arrays.toString(sorted) + "\n");
+			System.out.printf("Sorted: %b%nSame Elements:%b%n", isSorted(sorted), sameElements(sorted, input));
 		}
 	}
 	/**
@@ -70,14 +84,14 @@ public class TestInsertionSort {
 	*/
 	private static void shuffleTest(int n) {
 		int[] arr = new int[n];
-		for (int i = 0; i < n.length; i++) {
-			n[i] = Math.random() * n;
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = (int)(Math.random() * n);
 		}
 		// Insertion Sort
 		InsertionSort is = new InsertionSort();
 		int[] sorted = is.insertionSort(arr);
 		// Test if sorted
-		System.out.printf("Sorted: %b%nSame Elements:%b", isSorted(sorted), sameElements(sorted));
+		System.out.printf("Sorted: %b%nSame Elements: %b%n", isSorted(sorted), sameElements(sorted, arr));
 	}
 	/**
 	Main method to be run from command line and carry out tasks.
@@ -85,8 +99,14 @@ public class TestInsertionSort {
 	@param args Commandline inputs.
 	*/
 	public static void main(String[] args) {
-		shuffleTest();
-		// testFromConsole();
+		if (args.length == 0) {
+			testFromConsole();
+		} else {
+			for (String in : args) {
+				Scanner s = new Scanner(in);
+				shuffleTest(s.nextInt());
+			}
+		}
 	}
 	/**
 	Finds max of an array
