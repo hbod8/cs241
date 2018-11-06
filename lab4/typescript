@@ -26931,4 +26931,1570 @@ Sorted array:
         [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[10;204H[11;83H[34mString(arr));[39m[K[12;83H[K
         [34m/* Merge the temp arrays */[39m[K[14;83H[K
         [34m// Initial indexes of first and second subarrays[39m[K[16;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[17;83H[K
-        [34m// Initial index of merged subarry array[39m[K[19;83H        [34m//int k = l-1;[39m[K[20;83H        [32mint[39m k = l;[K[21;83H        [33mwhile[39m (i < n1 && j < n2) {[K[22;83H            [33mif[39m (L[i] <= R[j]) {[K[23;83H                arr[k] = L[i];[K[24;83H                i++;[K[25;83H                [34m//System.out.println("Took " +
+        [34m// Initial index of merged subarry array[39m[K[19;83H        [34m//int k = l-1;[39m[K[20;83H        [32mint[39m k = l;[K[21;83H        [33mwhile[39m (i < n1 && j < n2) {[K[22;83H            [33mif[39m (L[i] <= R[j]) {[K[23;83H                arr[k] = L[i];[K[24;83H                i++;[K[25;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[26;83H            }[K[27;83H            [33melse[39m {[K[28;83H                arr[k] = R[j];[K[29;83H                j++;[K[30;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[31;83H            }[K[32;83H            k++;[K[33;83H        }[K[34;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[36;83H        [33mwhile[39m (i < n1) {[K[37;83H            arr[k] = L[i];[K[38;83H            i++;[K[39;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[40;83H            k++;[K[41;83H        }[K[42;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[44;83H        [33mwhile[39m (j < n2) {[K[45;83H            arr[k] = R[j];[K[46;83H            j++;[K[47;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[48;83H            k++;[K[49;83H        }[K[50;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[52;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[53;83H    }[K[54;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[56;83H    [34m// merge()[39m[K[57;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[58;83H        [33mif[39m (l < r) {[K[59;83H            [34m// Find the middle point[39m[K[60;83H            [32mint[39m m = (l+r)/[31m2[39m;[K[61;83H[K
+            [34m// Sort first and second halves[39m[K[63;83H            sort(arr, l, m);[K[64;83H            sort(arr , m+[31m1[39m, r);[K[65;83H[K
+            [34m// Merge the sorted halves[39m[K[67;83H            merge(arr, l, m, r);[K[68;83H[1m-- INSERT --(B[m                                                                                            23,11         42%[K[1;117H[68;187H                  [68;1H[1;68r[H[68;187H22,11[9C40%[1;69r[H[92C[?12l[?25h[?25l[10D        [34m/*Copy data to temp arrays*/[39m[K[2;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[3;83H            L[i] = arr[l+i];[K[4;83H            [34m//L[i] = arr[l];[39m[K[5;83H        }[K[6;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[7;83H            R[j] = arr[m+[31m1[39m+j];[K[8;83H            [34m//R[j] = arr[m+j];[39m[K[9;83H        }[K[10;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[11;204H[12;83H[34mString(arr));[39m[K[13;83H[K
+        [34m/* Merge the temp arrays */[39m[K[15;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[17;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[18;83H[K
+        [34m// Initial index of merged subarry array[39m[K[20;83H        [34m//int k = l-1;[39m[K[21;83H        [32mint[39m k = l;[K[22;83H        [33mwhile[39m (i < n1 && j < n2) {[K[23;83H            [33mif[39m (L[i] <= R[j]) {[K[24;83H                arr[k] = L[i];[K[25;83H                i++;[K[26;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[27;83H            }[K[28;83H            [33melse[39m {[K[29;83H                arr[k] = R[j];[K[30;83H                j++;[K[31;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[32;83H            }[K[33;83H            k++;[K[34;83H        }[K[35;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[37;83H        [33mwhile[39m (i < n1) {[K[38;83H            arr[k] = L[i];[K[39;83H            i++;[K[40;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[41;83H            k++;[K[42;83H        }[K[43;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[45;83H        [33mwhile[39m (j < n2) {[K[46;83H            arr[k] = R[j];[K[47;83H            j++;[K[48;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[49;83H            k++;[K[50;83H        }[K[51;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[53;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[54;83H    }[K[55;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[57;83H    [34m// merge()[39m[K[58;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[59;83H        [33mif[39m (l < r) {[K[60;83H            [34m// Find the middle point[39m[K[61;83H            [32mint[39m m = (l+r)/[31m2[39m;[K[62;83H[K
+            [34m// Sort first and second halves[39m[K[64;83H            sort(arr, l, m);[K[65;83H            sort(arr , m+[31m1[39m, r);[K[66;83H[K
+            [34m// Merge the sorted halves[39m[K[68;83H[1m-- INSERT --(B[m                                                                                            22,11         40%[K[1;119H[68;187H                  [68;1H[1;68r[H[68;187H21,11[9C38%[1;69r[H[92C[?12l[?25h[?25l[10D[K
+        [34m/*Copy data to temp arrays*/[39m[K[3;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[4;83H            L[i] = arr[l+i];[K[5;83H            [34m//L[i] = arr[l];[39m[K[6;83H        }[K[7;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[8;83H            R[j] = arr[m+[31m1[39m+j];[K[9;83H            [34m//R[j] = arr[m+j];[39m[K[10;83H        }[K[11;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[12;204H[13;83H[34mString(arr));[39m[K[14;83H[K
+        [34m/* Merge the temp arrays */[39m[K[16;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[18;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[19;83H[K
+        [34m// Initial index of merged subarry array[39m[K[21;83H        [34m//int k = l-1;[39m[K[22;83H        [32mint[39m k = l;[K[23;83H        [33mwhile[39m (i < n1 && j < n2) {[K[24;83H            [33mif[39m (L[i] <= R[j]) {[K[25;83H                arr[k] = L[i];[K[26;83H                i++;[K[27;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[28;83H            }[K[29;83H            [33melse[39m {[K[30;83H                arr[k] = R[j];[K[31;83H                j++;[K[32;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[33;83H            }[K[34;83H            k++;[K[35;83H        }[K[36;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[38;83H        [33mwhile[39m (i < n1) {[K[39;83H            arr[k] = L[i];[K[40;83H            i++;[K[41;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[42;83H            k++;[K[43;83H        }[K[44;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[46;83H        [33mwhile[39m (j < n2) {[K[47;83H            arr[k] = R[j];[K[48;83H            j++;[K[49;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[50;83H            k++;[K[51;83H        }[K[52;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[54;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[55;83H    }[K[56;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[58;83H    [34m// merge()[39m[K[59;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[60;83H        [33mif[39m (l < r) {[K[61;83H            [34m// Find the middle point[39m[K[62;83H            [32mint[39m m = (l+r)/[31m2[39m;[K[63;83H[K
+            [34m// Sort first and second halves[39m[K[65;83H            sort(arr, l, m);[K[66;83H            sort(arr , m+[31m1[39m, r);[K[67;83H[K
+[1m-- INSERT --(B[m                                                                                            21,11         38%[K[1;83H[68;187H                  [68;1H[1;68r[H[68;187H20,1[10C36%[1;69r[H[82C[?12l[?25h[?25l        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[2;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[4;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[5;83H            L[i] = arr[l+i];[K[6;83H            [34m//L[i] = arr[l];[39m[K[7;83H        }[K[8;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[9;83H            R[j] = arr[m+[31m1[39m+j];[K[10;83H            [34m//R[j] = arr[m+j];[39m[K[11;83H        }[K[12;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[13;204H[14;83H[34mString(arr));[39m[K[15;83H[K
+        [34m/* Merge the temp arrays */[39m[K[17;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[19;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[20;83H[K
+        [34m// Initial index of merged subarry array[39m[K[22;83H        [34m//int k = l-1;[39m[K[23;83H        [32mint[39m k = l;[K[24;83H        [33mwhile[39m (i < n1 && j < n2) {[K[25;83H            [33mif[39m (L[i] <= R[j]) {[K[26;83H                arr[k] = L[i];[K[27;83H                i++;[K[28;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[29;83H            }[K[30;83H            [33melse[39m {[K[31;83H                arr[k] = R[j];[K[32;83H                j++;[K[33;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[34;83H            }[K[35;83H            k++;[K[36;83H        }[K[37;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[39;83H        [33mwhile[39m (i < n1) {[K[40;83H            arr[k] = L[i];[K[41;83H            i++;[K[42;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[43;83H            k++;[K[44;83H        }[K[45;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[47;83H        [33mwhile[39m (j < n2) {[K[48;83H            arr[k] = R[j];[K[49;83H            j++;[K[50;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[51;83H            k++;[K[52;83H        }[K[53;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[55;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[56;83H    }[K[57;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[59;83H    [34m// merge()[39m[K[60;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[61;83H        [33mif[39m (l < r) {[K[62;83H            [34m// Find the middle point[39m[K[63;83H            [32mint[39m m = (l+r)/[31m2[39m;[K[64;83H[K
+            [34m// Sort first and second halves[39m[K[66;83H            sort(arr, l, m);[K[67;83H            sort(arr , m+[31m1[39m, r);[K[68;83H[1m-- INSERT --(B[m                                                                                            20,1          36%[K[1;113H[68;187H                  [68;1H[1;68r[H[68;187H19,11[9C34%[1;69r[H[92C[?12l[?25h[?25l[10D        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[2;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[3;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[5;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[6;83H            L[i] = arr[l+i];[K[7;83H            [34m//L[i] = arr[l];[39m[K[8;83H        }[K[9;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[10;83H            R[j] = arr[m+[31m1[39m+j];[K[11;83H            [34m//R[j] = arr[m+j];[39m[K[12;83H        }[K[13;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[14;204H[15;83H[34mString(arr));[39m[K[16;83H[K
+        [34m/* Merge the temp arrays */[39m[K[18;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[20;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[21;83H[K
+        [34m// Initial index of merged subarry array[39m[K[23;83H        [34m//int k = l-1;[39m[K[24;83H        [32mint[39m k = l;[K[25;83H        [33mwhile[39m (i < n1 && j < n2) {[K[26;83H            [33mif[39m (L[i] <= R[j]) {[K[27;83H                arr[k] = L[i];[K[28;83H                i++;[K[29;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[30;83H            }[K[31;83H            [33melse[39m {[K[32;83H                arr[k] = R[j];[K[33;83H                j++;[K[34;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[35;83H            }[K[36;83H            k++;[K[37;83H        }[K[38;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[40;83H        [33mwhile[39m (i < n1) {[K[41;83H            arr[k] = L[i];[K[42;83H            i++;[K[43;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[44;83H            k++;[K[45;83H        }[K[46;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[48;83H        [33mwhile[39m (j < n2) {[K[49;83H            arr[k] = R[j];[K[50;83H            j++;[K[51;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[52;83H            k++;[K[53;83H        }[K[54;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[56;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[57;83H    }[K[58;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[60;83H    [34m// merge()[39m[K[61;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[62;83H        [33mif[39m (l < r) {[K[63;83H            [34m// Find the middle point[39m[K[64;83H            [32mint[39m m = (l+r)/[31m2[39m;[K[65;83H[K
+            [34m// Sort first and second halves[39m[K[67;83H            sort(arr, l, m);[K[68;83H[1m-- INSERT --(B[m                                                                                            19,11         34%[K[1;113H[68;187H                  [68;1H[1;68r[H[68;187H18,11[9C32%[1;69r[H[92C[?12l[?25h[?25l[10D        [34m/* Create temp arrays */[39m[K[2;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[3;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[4;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[6;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[7;83H            L[i] = arr[l+i];[K[8;83H            [34m//L[i] = arr[l];[39m[K[9;83H        }[K[10;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[11;83H            R[j] = arr[m+[31m1[39m+j];[K[12;83H            [34m//R[j] = arr[m+j];[39m[K[13;83H        }[K[14;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[15;204H[16;83H[34mString(arr));[39m[K[17;83H[K
+        [34m/* Merge the temp arrays */[39m[K[19;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[21;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[22;83H[K
+        [34m// Initial index of merged subarry array[39m[K[24;83H        [34m//int k = l-1;[39m[K[25;83H        [32mint[39m k = l;[K[26;83H        [33mwhile[39m (i < n1 && j < n2) {[K[27;83H            [33mif[39m (L[i] <= R[j]) {[K[28;83H                arr[k] = L[i];[K[29;83H                i++;[K[30;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[31;83H            }[K[32;83H            [33melse[39m {[K[33;83H                arr[k] = R[j];[K[34;83H                j++;[K[35;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[36;83H            }[K[37;83H            k++;[K[38;83H        }[K[39;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[41;83H        [33mwhile[39m (i < n1) {[K[42;83H            arr[k] = L[i];[K[43;83H            i++;[K[44;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[45;83H            k++;[K[46;83H        }[K[47;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[49;83H        [33mwhile[39m (j < n2) {[K[50;83H            arr[k] = R[j];[K[51;83H            j++;[K[52;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[53;83H            k++;[K[54;83H        }[K[55;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[57;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[58;83H    }[K[59;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[61;83H    [34m// merge()[39m[K[62;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[63;83H        [33mif[39m (l < r) {[K[64;83H            [34m// Find the middle point[39m[K[65;83H            [32mint[39m m = (l+r)/[31m2[39m;[K[66;83H[K
+            [34m// Sort first and second halves[39m[K[68;83H[1m-- INSERT --(B[m                                                                                            18,11         32%[K[1;115H[68;187H                  [68;1H[1;68r[H[68;187H17,11[9C30%[1;69r[H[92C[?12l[?25h[?25l[10D[K
+        [34m/* Create temp arrays */[39m[K[3;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[4;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[5;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[7;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[8;83H            L[i] = arr[l+i];[K[9;83H            [34m//L[i] = arr[l];[39m[K[10;83H        }[K[11;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[12;83H            R[j] = arr[m+[31m1[39m+j];[K[13;83H            [34m//R[j] = arr[m+j];[39m[K[14;83H        }[K[15;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[16;204H[17;83H[34mString(arr));[39m[K[18;83H[K
+        [34m/* Merge the temp arrays */[39m[K[20;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[22;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[23;83H[K
+        [34m// Initial index of merged subarry array[39m[K[25;83H        [34m//int k = l-1;[39m[K[26;83H        [32mint[39m k = l;[K[27;83H        [33mwhile[39m (i < n1 && j < n2) {[K[28;83H            [33mif[39m (L[i] <= R[j]) {[K[29;83H                arr[k] = L[i];[K[30;83H                i++;[K[31;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[32;83H            }[K[33;83H            [33melse[39m {[K[34;83H                arr[k] = R[j];[K[35;83H                j++;[K[36;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[37;83H            }[K[38;83H            k++;[K[39;83H        }[K[40;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[42;83H        [33mwhile[39m (i < n1) {[K[43;83H            arr[k] = L[i];[K[44;83H            i++;[K[45;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[46;83H            k++;[K[47;83H        }[K[48;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[50;83H        [33mwhile[39m (j < n2) {[K[51;83H            arr[k] = R[j];[K[52;83H            j++;[K[53;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[54;83H            k++;[K[55;83H        }[K[56;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[58;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[59;83H    }[K[60;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[62;83H    [34m// merge()[39m[K[63;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[64;83H        [33mif[39m (l < r) {[K[65;83H            [34m// Find the middle point[39m[K[66;83H            [32mint[39m m = (l+r)/[31m2[39m;[K[67;83H[K
+[1m-- INSERT --(B[m                                                                                            17,11         30%[K[1;83H[68;187H                  [68;1H[1;68r[H[68;187H16,1[10C28%[1;69r[H[82C[?12l[?25h[?25l        System.out.println([31m"Sub-array sizes: "[39m + n1 + [31m", "[39m + n2);[K[2;83H[K
+        [34m/* Create temp arrays */[39m[K[4;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[5;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[6;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[8;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[9;83H            L[i] = arr[l+i];[K[10;83H            [34m//L[i] = arr[l];[39m[K[11;83H        }[K[12;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[13;83H            R[j] = arr[m+[31m1[39m+j];[K[14;83H            [34m//R[j] = arr[m+j];[39m[K[15;83H        }[K[16;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[17;204H[18;83H[34mString(arr));[39m[K[19;83H[K
+        [34m/* Merge the temp arrays */[39m[K[21;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[23;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[24;83H[K
+        [34m// Initial index of merged subarry array[39m[K[26;83H        [34m//int k = l-1;[39m[K[27;83H        [32mint[39m k = l;[K[28;83H        [33mwhile[39m (i < n1 && j < n2) {[K[29;83H            [33mif[39m (L[i] <= R[j]) {[K[30;83H                arr[k] = L[i];[K[31;83H                i++;[K[32;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[33;83H            }[K[34;83H            [33melse[39m {[K[35;83H                arr[k] = R[j];[K[36;83H                j++;[K[37;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[38;83H            }[K[39;83H            k++;[K[40;83H        }[K[41;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[43;83H        [33mwhile[39m (i < n1) {[K[44;83H            arr[k] = L[i];[K[45;83H            i++;[K[46;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[47;83H            k++;[K[48;83H        }[K[49;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[51;83H        [33mwhile[39m (j < n2) {[K[52;83H            arr[k] = R[j];[K[53;83H            j++;[K[54;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[55;83H            k++;[K[56;83H        }[K[57;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[59;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[60;83H    }[K[61;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[63;83H    [34m// merge()[39m[K[64;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[65;83H        [33mif[39m (l < r) {[K[66;83H            [34m// Find the middle point[39m[K[67;83H            [32mint[39m m = (l+r)/[31m2[39m;[K[68;83H[1m-- INSERT --(B[m                                                                                            16,1          28%[K[1;148H[68;187H                  [68;1H[1;68r[H[68;187H15,4-11[7C26%[1;69r[H[92C[?12l[?25h[?25l[10D        [32mint[39m n2 = r - m;[K[2;83H        System.out.println([31m"Sub-array sizes: "[39m + n1 + [31m", "[39m + n2);[K[3;83H[K
+        [34m/* Create temp arrays */[39m[K[5;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[6;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[7;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[9;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[10;83H            L[i] = arr[l+i];[K[11;83H            [34m//L[i] = arr[l];[39m[K[12;83H        }[K[13;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[14;83H            R[j] = arr[m+[31m1[39m+j];[K[15;83H            [34m//R[j] = arr[m+j];[39m[K[16;83H        }[K[17;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[18;204H[19;83H[34mString(arr));[39m[K[20;83H[K
+        [34m/* Merge the temp arrays */[39m[K[22;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[24;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[25;83H[K
+        [34m// Initial index of merged subarry array[39m[K[27;83H        [34m//int k = l-1;[39m[K[28;83H        [32mint[39m k = l;[K[29;83H        [33mwhile[39m (i < n1 && j < n2) {[K[30;83H            [33mif[39m (L[i] <= R[j]) {[K[31;83H                arr[k] = L[i];[K[32;83H                i++;[K[33;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[34;83H            }[K[35;83H            [33melse[39m {[K[36;83H                arr[k] = R[j];[K[37;83H                j++;[K[38;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[39;83H            }[K[40;83H            k++;[K[41;83H        }[K[42;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[44;83H        [33mwhile[39m (i < n1) {[K[45;83H            arr[k] = L[i];[K[46;83H            i++;[K[47;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[48;83H            k++;[K[49;83H        }[K[50;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[52;83H        [33mwhile[39m (j < n2) {[K[53;83H            arr[k] = R[j];[K[54;83H            j++;[K[55;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[56;83H            k++;[K[57;83H        }[K[58;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[60;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[61;83H    }[K[62;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[64;83H    [34m// merge()[39m[K[65;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[66;83H        [33mif[39m (l < r) {[K[67;83H            [34m// Find the middle point[39m[K[68;83H[1m-- INSERT --(B[m                                                                                            15,4-11       26%[K[1;106H[68;187H                  [68;1H[1;68r[H[68;187H14,11[9C25%[1;69r[H[92C[?12l[?25h[?25l[10D        [32mint[39m n1 = m - l + [31m1[39m;[K[2;83H        [32mint[39m n2 = r - m;[K[3;83H        System.out.println([31m"Sub-array sizes: "[39m + n1 + [31m", "[39m + n2);[K[4;83H[K
+        [34m/* Create temp arrays */[39m[K[6;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[7;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[8;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[10;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[11;83H            L[i] = arr[l+i];[K[12;83H            [34m//L[i] = arr[l];[39m[K[13;83H        }[K[14;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[15;83H            R[j] = arr[m+[31m1[39m+j];[K[16;83H            [34m//R[j] = arr[m+j];[39m[K[17;83H        }[K[18;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[19;204H[20;83H[34mString(arr));[39m[K[21;83H[K
+        [34m/* Merge the temp arrays */[39m[K[23;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[25;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[26;83H[K
+        [34m// Initial index of merged subarry array[39m[K[28;83H        [34m//int k = l-1;[39m[K[29;83H        [32mint[39m k = l;[K[30;83H        [33mwhile[39m (i < n1 && j < n2) {[K[31;83H            [33mif[39m (L[i] <= R[j]) {[K[32;83H                arr[k] = L[i];[K[33;83H                i++;[K[34;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[35;83H            }[K[36;83H            [33melse[39m {[K[37;83H                arr[k] = R[j];[K[38;83H                j++;[K[39;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[40;83H            }[K[41;83H            k++;[K[42;83H        }[K[43;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[45;83H        [33mwhile[39m (i < n1) {[K[46;83H            arr[k] = L[i];[K[47;83H            i++;[K[48;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[49;83H            k++;[K[50;83H        }[K[51;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[53;83H        [33mwhile[39m (j < n2) {[K[54;83H            arr[k] = R[j];[K[55;83H            j++;[K[56;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[57;83H            k++;[K[58;83H        }[K[59;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[61;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[62;83H    }[K[63;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[65;83H    [34m// merge()[39m[K[66;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[67;83H        [33mif[39m (l < r) {[K[68;83H[1m-- INSERT --(B[m                                                                                            14,11         25%[K[1;110H[68;187H                  [68;1H[1;68r[H[68;187H13,11[9C23%[1;69r[H[92C[?12l[?25h[1;68r[H[68;188H4[1;69r[H[2;93H[1;68r[H[68;188H5,4-11[1;69r[H[3;93H[1;68r[H[68;190H3-10[1;69r[H[3;92H[1;68r[H[68;190H2-9 [1;69r[H[3;91H[1;68r[H[3;91H/System.out.println([31m"Sub-array sizes: "[39m + n1 + [31m", "[39m + n2);[68;190H3-10[1;69r[H[3;92H[1;68r[H[3;91H[34m//System.out.println("Sub-array sizes: " + n1 + ", " + n2);[68;190H[39m4-11[1;69r[H[3;93H[1;68r[H[68;188H4,11  [1;69r[H[2;93H[1;68r[H[68;188H3[1;69r[H[92C[?25l[10D        [34m// Find sizes of two subarrays to be merged[39m[K[2;83H        [32mint[39m n1 = m - l + [31m1[39m;[K[3;83H        [32mint[39m n2 = r - m;[K[4;83H        [34m//System.out.println("Sub-array sizes: " + n1 + ", " + n2);[39m[K[5;83H[K
+        [34m/* Create temp arrays */[39m[K[7;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[8;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[9;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[11;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[12;83H            L[i] = arr[l+i];[K[13;83H            [34m//L[i] = arr[l];[39m[K[14;83H        }[K[15;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[16;83H            R[j] = arr[m+[31m1[39m+j];[K[17;83H            [34m//R[j] = arr[m+j];[39m[K[18;83H        }[K[19;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[20;204H[21;83H[34mString(arr));[39m[K[22;83H[K
+        [34m/* Merge the temp arrays */[39m[K[24;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[26;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[27;83H[K
+        [34m// Initial index of merged subarry array[39m[K[29;83H        [34m//int k = l-1;[39m[K[30;83H        [32mint[39m k = l;[K[31;83H        [33mwhile[39m (i < n1 && j < n2) {[K[32;83H            [33mif[39m (L[i] <= R[j]) {[K[33;83H                arr[k] = L[i];[K[34;83H                i++;[K[35;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[36;83H            }[K[37;83H            [33melse[39m {[K[38;83H                arr[k] = R[j];[K[39;83H                j++;[K[40;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[41;83H            }[K[42;83H            k++;[K[43;83H        }[K[44;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[46;83H        [33mwhile[39m (i < n1) {[K[47;83H            arr[k] = L[i];[K[48;83H            i++;[K[49;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[50;83H            k++;[K[51;83H        }[K[52;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[54;83H        [33mwhile[39m (j < n2) {[K[55;83H            arr[k] = R[j];[K[56;83H            j++;[K[57;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[58;83H            k++;[K[59;83H        }[K[60;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[62;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[63;83H    }[K[64;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[66;83H    [34m// merge()[39m[K[67;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[K[68;83H[1m-- INSERT --(B[m                                                                                            13,11         23%[K[1;134H[68;187H                  [68;1H[1;68r[H[68;187H12,11[9C21%[1;69r[H[92C[?12l[?25h[?25l[10D        System.out.println([31m"[35m\n[31m-- NEW MERGE --[35m\n[31ml="[39m + l + [31m" m="[39m + m + [31m" r="[39m + r);[K[2;83H        [34m// Find sizes of two subarrays to be merged[39m[K[3;83H        [32mint[39m n1 = m - l + [31m1[39m;[K[4;83H        [32mint[39m n2 = r - m;[K[5;83H        [34m//System.out.println("Sub-array sizes: " + n1 + ", " + n2);[39m[K[6;83H[K
+        [34m/* Create temp arrays */[39m[K[8;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[9;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[10;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[12;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[13;83H            L[i] = arr[l+i];[K[14;83H            [34m//L[i] = arr[l];[39m[K[15;83H        }[K[16;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[17;83H            R[j] = arr[m+[31m1[39m+j];[K[18;83H            [34m//R[j] = arr[m+j];[39m[K[19;83H        }[K[20;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[21;204H[22;83H[34mString(arr));[39m[K[23;83H[K
+        [34m/* Merge the temp arrays */[39m[K[25;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[27;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[28;83H[K
+        [34m// Initial index of merged subarry array[39m[K[30;83H        [34m//int k = l-1;[39m[K[31;83H        [32mint[39m k = l;[K[32;83H        [33mwhile[39m (i < n1 && j < n2) {[K[33;83H            [33mif[39m (L[i] <= R[j]) {[K[34;83H                arr[k] = L[i];[K[35;83H                i++;[K[36;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[37;83H            }[K[38;83H            [33melse[39m {[K[39;83H                arr[k] = R[j];[K[40;83H                j++;[K[41;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[42;83H            }[K[43;83H            k++;[K[44;83H        }[K[45;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[47;83H        [33mwhile[39m (i < n1) {[K[48;83H            arr[k] = L[i];[K[49;83H            i++;[K[50;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[51;83H            k++;[K[52;83H        }[K[53;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[55;83H        [33mwhile[39m (j < n2) {[K[56;83H            arr[k] = R[j];[K[57;83H            j++;[K[58;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[59;83H            k++;[K[60;83H        }[K[61;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[63;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[64;83H    }[K[65;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[67;83H    [34m// merge()[39m[K[68;83H[1m-- INSERT --(B[m                                                                                            12,11         21%[K[1;163H[68;187H                  [68;1H[1;68r[H[68;187H11,4-11[7C19%[1;69r[H[92C[?12l[?25h[?25l[10D    [32mprivate[39m [32mstatic[39m [32mvoid[39m merge([32mint[39m arr[], [32mint[39m l, [32mint[39m m, [32mint[39m r) {[K[2;83H        System.out.println([31m"[35m\n[31m-- NEW MERGE --[35m\n[31ml="[39m + l + [31m" m="[39m + m + [31m" r="[39m + r);[K[3;83H        [34m// Find sizes of two subarrays to be merged[39m[K[4;83H        [32mint[39m n1 = m - l + [31m1[39m;[K[5;83H        [32mint[39m n2 = r - m;[K[6;83H        [34m//System.out.println("Sub-array sizes: " + n1 + ", " + n2);[39m[K[7;83H[K
+        [34m/* Create temp arrays */[39m[K[9;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[10;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[11;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[13;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[14;83H            L[i] = arr[l+i];[K[15;83H            [34m//L[i] = arr[l];[39m[K[16;83H        }[K[17;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[18;83H            R[j] = arr[m+[31m1[39m+j];[K[19;83H            [34m//R[j] = arr[m+j];[39m[K[20;83H        }[K[21;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[22;204H[23;83H[34mString(arr));[39m[K[24;83H[K
+        [34m/* Merge the temp arrays */[39m[K[26;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[28;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[29;83H[K
+        [34m// Initial index of merged subarry array[39m[K[31;83H        [34m//int k = l-1;[39m[K[32;83H        [32mint[39m k = l;[K[33;83H        [33mwhile[39m (i < n1 && j < n2) {[K[34;83H            [33mif[39m (L[i] <= R[j]) {[K[35;83H                arr[k] = L[i];[K[36;83H                i++;[K[37;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[38;83H            }[K[39;83H            [33melse[39m {[K[40;83H                arr[k] = R[j];[K[41;83H                j++;[K[42;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[43;83H            }[K[44;83H            k++;[K[45;83H        }[K[46;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[48;83H        [33mwhile[39m (i < n1) {[K[49;83H            arr[k] = L[i];[K[50;83H            i++;[K[51;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[52;83H            k++;[K[53;83H        }[K[54;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[56;83H        [33mwhile[39m (j < n2) {[K[57;83H            arr[k] = R[j];[K[58;83H            j++;[K[59;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[60;83H            k++;[K[61;83H        }[K[62;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[64;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[65;83H    }[K[66;83H[K
+    [34m// Main function that sorts arr[l..r] using[39m[K[68;83H[1m-- INSERT --(B[m                                                                                            11,4-11       19%[K[1;146H[68;187H                  [68;1H[1;68r[H[68;187H10,11[9C17%[1;69r[H[92C[?12l[?25h[?25l[10D    [34m// Second subarray is arr[m+1..r][39m[K[2;83H    [32mprivate[39m [32mstatic[39m [32mvoid[39m merge([32mint[39m arr[], [32mint[39m l, [32mint[39m m, [32mint[39m r) {[K[3;83H        System.out.println([31m"[35m\n[31m-- NEW MERGE --[35m\n[31ml="[39m + l + [31m" m="[39m + m + [31m" r="[39m + r);[K[4;83H        [34m// Find sizes of two subarrays to be merged[39m[K[5;83H        [32mint[39m n1 = m - l + [31m1[39m;[K[6;83H        [32mint[39m n2 = r - m;[K[7;83H        [34m//System.out.println("Sub-array sizes: " + n1 + ", " + n2);[39m[K[8;83H[K
+        [34m/* Create temp arrays */[39m[K[10;83H        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K[11;83H        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K[12;83H[K
+        [34m/*Copy data to temp arrays*/[39m[K[14;83H        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K[15;83H            L[i] = arr[l+i];[K[16;83H            [34m//L[i] = arr[l];[39m[K[17;83H        }[K[18;83H        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K[19;83H            R[j] = arr[m+[31m1[39m+j];[K[20;83H            [34m//R[j] = arr[m+j];[39m[K[21;83H        }[K[22;83H[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[23;204H[24;83H[34mString(arr));[39m[K[25;83H[K
+        [34m/* Merge the temp arrays */[39m[K[27;83H[K
+        [34m// Initial indexes of first and second subarrays[39m[K[29;83H        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K[30;83H[K
+        [34m// Initial index of merged subarry array[39m[K[32;83H        [34m//int k = l-1;[39m[K[33;83H        [32mint[39m k = l;[K[34;83H        [33mwhile[39m (i < n1 && j < n2) {[K[35;83H            [33mif[39m (L[i] <= R[j]) {[K[36;83H                arr[k] = L[i];[K[37;83H                i++;[K[38;83H                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[39;83H            }[K[40;83H            [33melse[39m {[K[41;83H                arr[k] = R[j];[K[42;83H                j++;[K[43;83H                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[44;83H            }[K[45;83H            k++;[K[46;83H        }[K[47;83H[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K[49;83H        [33mwhile[39m (i < n1) {[K[50;83H            arr[k] = L[i];[K[51;83H            i++;[K[52;83H            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K[53;83H            k++;[K[54;83H        }[K[55;83H[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K[57;83H        [33mwhile[39m (j < n2) {[K[58;83H            arr[k] = R[j];[K[59;83H            j++;[K[60;83H            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K[61;83H            k++;[K[62;83H        }[K[63;83H[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K[65;83H        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K[66;83H    }[K[67;83H[K
+[1m-- INSERT --(B[m                                                                                            10,11         17%[K[1;120H[68;187H                  [68;1H[1;68r[H[68;187H9,11[10C15%[1;69r[H[92C[?12l[?25h[1;68r[H[68;187H10,11[1;69r[H[2;93H[1;68r[H[68;188H1,4-11[1;69r[H[3;93H[1;68r[H[68;190H3-10[1;69r[H[3;92H[1;68r[H[68;190H2-9 [1;69r[H[3;91H[1;68r[H[3;91H/System.out.println([31m"[35m\n[C[31m- NEW MERGE --[35m\n[31ml="[39m + l + [31m" m="[39m + m + [31m" r="[39m + r);[68;190H3-10[1;69r[H[3;92H[1;68r[H[3;91H[34m//System.out.println("\n-- NEW MERGE --\nl=" + l + " m=" + m + " r=" + r);[68;190H[39m4-11[1;69r[H[3;93H[68;83H                                                                                                                          [68;83H[?25l[1;68r[H[68;187H11,3-10[7C15%[17D                  [68;83H:[1;69r[H[68;84H[?12l[?25h[1;68r[H[68;84Hw[1;69r[H[68;85H[2D[1;68r[H[68;83H"MergeSort.java"[1;69r[H[68;99H[?25l[1;68r[H[68;99H [dos] 118L, 3420C written[1;69r[H[68;125H[1;68r[H[68;187H11,3-10[7C15%[17D                  [68;1H[1;69r[H[68;187H[1;68r[H[68;187H11,3-10[7C15%[1;69r[H[3;92H[?12l[?25h[?25l[32m[1;82H│[2;82H│[3;82H│[4;82H│[5;82H│[6;82H│[7;82H│[8;82H│[9;82H│[10;82H│[11;82H│[12;82H│[13;82H│[14;82H│[15;82H│[16;82H│[17;82H│[18;82H│[19;82H│[20;82H│[21;82H│[22;82H│[23;82H│[24;82H│[25;82H│[26;82H│[27;82H│[28;82H│[29;82H│[30;82H│[31;82H│[32;82H│[33;82H│[34;82H│[35;82H│[39m[36;82H│[37;82H│[38;82H│[39;82H│[40;82H│[41;82H│[42;82H│[43;82H│[44;82H│[45;82H│[46;82H│[47;82H│[48;82H│[49;82H│[50;82H│[51;82H│[52;82H│[53;82H│[54;82H│[55;82H│[56;82H│[57;82H│[58;82H│[59;82H│[60;82H│[61;82H│[62;82H│[63;82H│[64;82H│[65;82H│[66;82H│[67;82H│[68;82H│(B[m[37D[?12l[?25h[?1l>[?25l
+[30m[42m[0] 0:bash*                                                                                                                                                                       "CF165-18" 09:41 06-Nov-18(B[m[68;46H[?12l[?25h[1;68r[H[68;46Hjava MergeSort[1;69r[H[68;60H[1;68r[H[68;50Hc -g MergeSort.java[1;69r[H[68;69H[?25l[H-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 2, 3                                                            
+Merging L[]=[11, 11] and R[]=[13, 5, 6] from [11, 12, 13, 5, 6, 7]               
+Took 11 from left array.                                                         
+Took 11 from left array.                                                         
+Took 13 from right array.                                                        
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+New array: [11, 11, 13, 5, 6, 7]                                                 
+                                                                                 
+Sorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+                                                                                 [?12l[?25h[1;68r[H[68dsalibah@CF165-18:~/Documents/CS241Repo/lab4$ [1;69r[H[68;46H[1;68r[H[68;46Hjavac -g MergeSort.java[1;69r[H[68;69H[?25lsalibah@CF165-18:~/Documents/CS241Repo/lab4$ javaeSort.java                      [1;68r[H[68;50H MergeSort[1;69r[H[68;60H[?12l[?25h[?25l[Hl=0 m=2 r=5                                                                      
+Sub-array sizes: 2, 3                                                            
+Merging L[]=[11, 11] and R[]=[13, 5, 6] from [11, 12, 13, 5, 6, 7]               
+Took 11 from left array.                                                         
+Took 11 from left array.                                                         
+Took 13 from right array.                                                        
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+New array: [11, 11, 13, 5, 6, 7]                                                 
+                                                                                 
+Sorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+                                                                                 [?12l[?25h[1;68r[H[68dGiven array:[?25l[HSub-array sizes: 2, 3                                                            
+Merging L[]=[11, 11] and R[]=[13, 5, 6] from [11, 12, 13, 5, 6, 7]               
+Took 11 from left array.                                                         
+Took 11 from left array.                                                         
+Took 13 from right array.                                                        
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+New array: [11, 11, 13, 5, 6, 7]                                                 
+                                                                                 
+Sorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68d12 11 13 5 6 7 [?25l[HTook 13 from right array.                                                        
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+New array: [11, 11, 13, 5, 6, 7]                                                 
+                                                                                 
+Sorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68dsalibah@CF165-18:~/Documents/CS241Repo/lab4$ [1;69r[H[68;46H[1;68r[H[68;46Hg[1;69r[H[68;47H[1;68r[H[68;47Hi[1;69r[H[68;48H[?25l
+[30m[42m[0] 0:bash*                                                                                                                                                                       "CF165-18" 09:42 06-Nov-18(B[m[68;48H[?12l[?25h[1;68r[H[68;48Ht[1;69r[H[68;49H[1;68r[H[68;49H [1;69r[H[68;50H[1;68r[H[68;50Ha[1;69r[H[68;51H[1;68r[H[68;51Hd[1;69r[H[68;52H[1;68r[H[68;52Hd[1;69r[H[68;53H[1;68r[H[68;53H [1;69r[H[68;54H[1;68r[H[68;54H*[1;69r[H[68;55H                            [28D                             [29D                              [30D                               [31D                                [32D                                 [33D                                  [34D                                   [35D                                    [36D[1;68r[H[68;46Hr[1;69r[H[68;47H[1;68r[H[68;47Hm[1;69r[H[68;48H[1;68r[H[68;48H [1;69r[H[68;49H[1;68r[H[68;49H*[1;69r[H[68;50H[1;68r[H[68;50H.[1;69r[H[68;51H[1;68r[H[68;51Hc[1;69r[H[68;52H[1;68r[H[68;52Hl[1;69r[H[68;53H[1;68r[H[68;53Ha[1;69r[H[68;54H[1;68r[H[68;54Hs[1;69r[H[68;55H[1;68r[H[68;55Hs[1;69r[H[68;56H[?25l[HTook 5 from right array.                                                         
+Took 6 from right array.                                                         
+New array: [11, 11, 13, 5, 6, 7]                                                 
+                                                                                 
+Sorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+                                                                                 [?12l[?25h[1;68r[H[68dsalibah@CF165-18:~/Documents/CS241Repo/lab4$ [1;69r[H[68;46H[1;68r[H[68;46Hg[1;69r[H[68;47H[1;68r[H[68;47Hi[1;69r[H[68;48H[1;68r[H[68;48Ht[1;69r[H[68;49H[1;68r[H[68;49H [1;69r[H[68;50H[1;68r[H[68;50Ha[1;69r[H[68;51H[1;68r[H[68;51Hd[1;69r[H[68;52H[1;68r[H[68;52Hd[1;69r[H[68;53H[1;68r[H[68;53H [1;69r[H[68;54H[1;68r[H[68;54H*[1;69r[H[68;55H[?25l[HTook 6 from right array.                                                         
+New array: [11, 11, 13, 5, 6, 7]                                                 
+                                                                                 
+Sorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+                                                                                 [?12l[?25h[1;68r[H[68dsalibah@CF165-18:~/Documents/CS241Repo/lab4$ [1;69r[H[68;46H[1;68r[H[68;46Hg[1;69r[H[68;47H[1;68r[H[68;47Hi[1;69r[H[68;48H[1;68r[H[68;48Ht[1;69r[H[68;49H[1;68r[H[68;49H [1;69r[H[68;50H[1;68r[H[68;50Hp[1;69r[H[68;51H[1;68r[H[68;51Hu[1;69r[H[68;52H[1;68r[H[68;52Hs[1;69r[H[68;53H[1;68r[H[68;53Hh[1;69r[H[68;54H[1;68r[H[68;54H [1;69r[H[68;55H[1;68r[H[68;55Hr[1;69r[H[68;56H                           [27D[1;68r[H[68;55Ho[1;69r[H[68;56H[1;68r[H[68;56Hr[1;69r[H[68;57H[1;68r[H[68;57Hi[1;69r[H[68;58H[1;68r[H[68;58Hg[1;69r[H[68;59H[1;68r[H[68;59Hi[1;69r[H[68;60H[1;68r[H[68;60Hn[1;69r[H[68;61H[1;68r[H[68;61H [1;69r[H[68;62H[1;68r[H[68;62Hm[1;69r[H[68;63H[1;68r[H[68;63Ha[1;69r[H[68;64H[1;68r[H[68;64Hs[1;69r[H[68;65H[1;68r[H[68;65Ht[1;69r[H[68;66H[1;68r[H[68;66He[1;69r[H[68;67H[1;68r[H[68;67Hr[1;69r[H[68;68H               [15D                [16D                 [17D                  [18D                   [19D                    [20D                     [21D                      [22D                       [23D                        [24D                         [25D                          [26D                           [27D                            [28D                             [29D                              [30D                               [31D                                [32D[1;68r[H[68;50Hc[1;69r[H[68;51H[1;68r[H[68;51Ho[1;69r[H[68;52H[1;68r[H[68;52Hm[1;69r[H[68;53H[1;68r[H[68;53Hm[1;69r[H[68;54H[1;68r[H[68;54Hi[1;69r[H[68;55H[1;68r[H[68;55Ht[1;69r[H[68;56H[1;68r[H[68;56H [1;69r[H[68;57H[1;68r[H[68;57H-[1;69r[H[68;58H[1;68r[H[68;58Hm[1;69r[H[68;59H[1;68r[H[68;59H [1;69r[H[68;60H[1;68r[H[68;60H"[1;69r[H[68;61H[1;68r[H[68;61HD[1;69r[H[68;62H[1;68r[H[68;62Ho[1;69r[H[68;63H[1;68r[H[68;63Hn[1;69r[H[68;64H[1;68r[H[68;64He[1;69r[H[68;65H[1;68r[H[68;65H.[1;69r[H[68;66H[1;68r[H[68;66H"[1;69r[H[68;67H[?25l[HNew array: [11, 11, 13, 5, 6, 7]                                                 
+                                                                                 
+Sorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+                                                                                 [?12l[?25h[1;68r[H[68d[master 51f229c] Done.[?25l[H                                                                                 
+Sorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+                                                                                 [69;1H[30m[42m[0] 0:git*                                                                                                                                                                        "CF165-18" 09:42 06-Nov-18(B[m[69;1H[1;69r[H[68d[?12l[?25h[1;68r[H[68d 2 files changed, 6278 insertions(+), 7 deletions(-)[?25l[HSorted array:                                                                    
+11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68dsalibah@CF165-18:~/Documents/CS241Repo/lab4$ [1;69r[H[68;46H[?25l
+[30m[42m[0] 0:bash*                                                                                                                                                                       "CF165-18" 09:42 06-Nov-18(B[m[68;46H[?12l[?25h[1;68r[H[68;46Hg[1;69r[H[68;47H[1;68r[H[68;47Hi[1;69r[H[68;48H[1;68r[H[68;48Ht[1;69r[H[68;49H[1;68r[H[68;49H [1;69r[H[68;50H[1;68r[H[68;50Hp[1;69r[H[68;51H[1;68r[H[68;51Hu[1;69r[H[68;52H[1;68r[H[68;52Hs[1;69r[H[68;53H[1;68r[H[68;53Hh[1;69r[H[68;54H[1;68r[H[68;54H [1;69r[H[68;55H[1;68r[H[68;55Ho[1;69r[H[68;56H[1;68r[H[68;56Hr[1;69r[H[68;57H[1;68r[H[68;57Hi[1;69r[H[68;58H[1;68r[H[68;58Hg[1;69r[H[68;59H[1;68r[H[68;59Hi[1;69r[H[68;60H[1;68r[H[68;60Hn[1;69r[H[68;61H[1;68r[H[68;61H [1;69r[H[68;62H[1;68r[H[68;62Hm[1;69r[H[68;63H[1;68r[H[68;63Ha[1;69r[H[68;64H[1;68r[H[68;64Hs[1;69r[H[68;65H[1;68r[H[68;65Ht[1;69r[H[68;66H[1;68r[H[68;66He[1;69r[H[68;67H[1;68r[H[68;67Hr[1;69r[H[68;68H[?25l[H11 11 13 5 6 7                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+                                                                                 [?12l[?25h[1;68r[H[68dUsername for 'https://gitlab.cs.wwu.edu': [1;69r[H[68;43H[?25l
+[30m[42m[0] 0:git*                                                                                                                                                                        "CF165-18" 09:42 06-Nov-18(B[m[68;43H[?12l[?25h[1;68r[H[68;43Hs[1;69r[H[68;44H[1;68r[H[68;44Ha[1;69r[H[68;45H[1;68r[H[68;45Hl[1;69r[H[68;46H[1;68r[H[68;46Hi[1;69r[H[68;47H[1;68r[H[68;47Hb[1;69r[H[68;48H[1;68r[H[68;48Ha[1;69r[H[68;49H[1;68r[H[68;49Hh[1;69r[H[68;50H[?25l[Hsalibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+                                                                                 [?12l[?25h[1;68r[H[68dPassword for 'https://salibah@gitlab.cs.wwu.edu': [1;69r[H[68;51H[?25l[Hsalibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+Password for 'https://salibah@gitlab.cs.wwu.edu':                                
+                                                                                 [?12l[?25h[1;68r[H[68dCounting objects: 5, done.[?25l[HGiven array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+Password for 'https://salibah@gitlab.cs.wwu.edu':                                
+Counting objects: 5, done.                                                       
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68dDelta compression using up to 8 threads.[?25l[H12 11 13 5 6 7                                                                   
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+Password for 'https://salibah@gitlab.cs.wwu.edu':                                
+Counting objects: 5, done.                                                       
+Delta compression using up to 8 threads.                                         
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68dCompressing objects:  20% (1/5)   [1;69r[H[68d[1;68r[H[68dCompressing objects:  40% (2/5)   [1;69r[H[68d[1;68r[H[68dCompressing objects:  60% (3/5)   [1;69r[H[68d[1;68r[H[68dCompressing objects:  80% (4/5)   [1;69r[H[68d[1;68r[H[68dCompressing objects: 100% (5/5)   [1;69r[H[68d[1;68r[H[68dCompressing objects: 100% (5/5), done.[?25l[H                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+Password for 'https://salibah@gitlab.cs.wwu.edu':                                
+Counting objects: 5, done.                                                       
+Delta compression using up to 8 threads.                                         
+Compressing objects: 100% (5/5), done.                                           
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68dWriting objects:  20% (1/5)   Writing objects:  40% (2/5)   [1;69r[H[68d[1;68r[H[68dWriting objects:  60% (3/5)   Writing objects:  80% (4/5)   [1;69r[H[68d[1;68r[H[68dWriting objects: 100% (5/5)   Writing objects: 100% (5/5), 53.35 KiB | 0 bytes/s, done.[?25l[Hl=0 m=0 r=1                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+Password for 'https://salibah@gitlab.cs.wwu.edu':                                
+Counting objects: 5, done.                                                       
+Delta compression using up to 8 threads.                                         
+Compressing objects: 100% (5/5), done.                                           
+Writing objects: 100% (5/5), 53.35 KiB | 0 bytes/s, done.                        
+Total 5 (delta 3), reused 0 (delta 0)                                            
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68dTo https://gitlab.cs.wwu.edu/salibah/CS241.git[?25l[HSub-array sizes: 1, 1                                                            
+Merging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+Password for 'https://salibah@gitlab.cs.wwu.edu':                                
+Counting objects: 5, done.                                                       
+Delta compression using up to 8 threads.                                         
+Compressing objects: 100% (5/5), done.                                           
+Writing objects: 100% (5/5), 53.35 KiB | 0 bytes/s, done.                        
+Total 5 (delta 3), reused 0 (delta 0)                                            
+To https://gitlab.cs.wwu.edu/salibah/CS241.git                                   
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68d   3c70c84..51f229c  master -> master[?25l[HMerging L[]=[12] and R[]=[11] from [12, 11, 13, 5, 6, 7]                         
+Took 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+Password for 'https://salibah@gitlab.cs.wwu.edu':                                
+Counting objects: 5, done.                                                       
+Delta compression using up to 8 threads.                                         
+Compressing objects: 100% (5/5), done.                                           
+Writing objects: 100% (5/5), 53.35 KiB | 0 bytes/s, done.                        
+Total 5 (delta 3), reused 0 (delta 0)                                            
+To https://gitlab.cs.wwu.edu/salibah/CS241.git                                   
+   3c70c84..51f229c  master -> master                                            
+                                                                                 [1;69r[H[68d[?12l[?25h[1;68r[H[68dsalibah@CF165-18:~/Documents/CS241Repo/lab4$ [1;69r[H[68;46H[?25l
+[30m[42m[0] 0:bash*                                                                                                                                                                       "CF165-18" 09:42 06-Nov-18(B[m[68;46H[?12l[?25h[?25l
+[30m[42m[0] 0:bash*                                                                                                                                                                       "CF165-18" 09:43 06-Nov-18(B[m[68;46H[?12l[?25h[?25l
+[30m[42m[0] 0:bash*                                                                                                                                                                       "CF165-18" 09:44 06-Nov-18(B[m[68;46H[?12l[?25h[1;68r[H[68;46Hlogout[?25l[HTook 11 from right array.                                                        
+Took 12 from left array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=1 r=2                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[11, 12] and R[]=[13] from [11, 12, 13, 5, 6, 7]                     
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from right array.                                                        
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=3 r=4                                                                      
+Sub-array sizes: 1, 1                                                            
+Merging L[]=[5] and R[]=[6] from [11, 12, 13, 5, 6, 7]                           
+Took 5 from left array.                                                          
+Took 6 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=3 m=4 r=5                                                                      
+Sub-array sizes: 2, 1                                                            
+Merging L[]=[5, 6] and R[]=[7] from [11, 12, 13, 5, 6, 7]                        
+Took 5 from left array.                                                          
+Took 6 from left array.                                                          
+Took 7 from right array.                                                         
+New array: [11, 12, 13, 5, 6, 7]                                                 
+                                                                                 
+-- NEW MERGE --                                                                  
+l=0 m=2 r=5                                                                      
+Sub-array sizes: 3, 3                                                            
+Merging L[]=[11, 12, 13] and R[]=[5, 6, 7] from [11, 12, 13, 5, 6, 7]            
+Took 5 from right array.                                                         
+Took 6 from right array.                                                         
+Took 7 from right array.                                                         
+Took 11 from left array.                                                         
+Took 12 from left array.                                                         
+Took 13 from left array.                                                         
+New array: [5, 6, 7, 11, 12, 13]                                                 
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ javac -g MergeSort.java             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ java MergeSort                      
+Given array:                                                                     
+12 11 13 5 6 7                                                                   
+                                                                                 
+Sorted array:                                                                    
+5 6 7 11 12 13                                                                   
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ rm *.class                          
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git add *                           
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git commit -m "Done."               
+[master 51f229c] Done.                                                           
+ 2 files changed, 6278 insertions(+), 7 deletions(-)                             
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ git push origin master              
+Username for 'https://gitlab.cs.wwu.edu': salibah                                
+Password for 'https://salibah@gitlab.cs.wwu.edu':                                
+Counting objects: 5, done.                                                       
+Delta compression using up to 8 threads.                                         
+Compressing objects: 100% (5/5), done.                                           
+Writing objects: 100% (5/5), 53.35 KiB | 0 bytes/s, done.                        
+Total 5 (delta 3), reused 0 (delta 0)                                            
+To https://gitlab.cs.wwu.edu/salibah/CS241.git                                   
+   3c70c84..51f229c  master -> master                                            
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ logout                              
+                                                                                 [1;69r[H[68d[?12l[?25h[?25l
+[30m[42m[0] 0:sh*                                                                                                                                                                         "CF165-18" 09:44 06-Nov-18(B[m[68;1H[?12l[?25h[?25l[H    [34m// Second subarray is arr[m+1..r][39m[K
+    [32mprivate[39m [32mstatic[39m [32mvoid[39m merge([32mint[39m arr[], [32mint[39m l, [32mint[39m m, [32mint[39m r) {[K
+        [34m//System.out.println("\n-- NEW MERGE --\nl=" + l + " m=" + m + " r=" + r);[39m[K
+        [34m// Find sizes of two subarrays to be merged[39m[K
+        [32mint[39m n1 = m - l + [31m1[39m;[K
+        [32mint[39m n2 = r - m;[K
+        [34m//System.out.println("Sub-array sizes: " + n1 + ", " + n2);[39m[K
+[K
+        [34m/* Create temp arrays */[39m[K
+        [32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[K
+        [32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[K
+[K
+        [34m/*Copy data to temp arrays*/[39m[K
+        [33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[K
+            L[i] = arr[l+i];[K
+            [34m//L[i] = arr[l];[39m[K
+        }[K
+        [33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[K
+            R[j] = arr[m+[31m1[39m+j];[K
+            [34m//R[j] = arr[m+j];[39m[K
+        }[K
+[K
+        [34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.to[39m[K
+[34mString(arr));[39m[K
+[K
+        [34m/* Merge the temp arrays */[39m[K
+[K
+        [34m// Initial indexes of first and second subarrays[39m[K
+        [32mint[39m i = [31m0[39m, j = [31m0[39m;[K
+[K
+        [34m// Initial index of merged subarry array[39m[K
+        [34m//int k = l-1;[39m[K
+        [32mint[39m k = l;[K
+        [33mwhile[39m (i < n1 && j < n2) {[K
+            [33mif[39m (L[i] <= R[j]) {[K
+                arr[k] = L[i];[K
+                i++;[K
+                [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K
+            }[K
+            [33melse[39m {[K
+                arr[k] = R[j];[K
+                j++;[K
+                [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K
+            }[K
+            k++;[K
+        }[K
+[K
+        [34m/* Copy remaining elements of L[] if any */[39m[K
+        [33mwhile[39m (i < n1) {[K
+            arr[k] = L[i];[K
+            i++;[K
+            [34m//System.out.println("Took " + arr[k] + " from left array.");[39m[K
+            k++;[K
+        }[K
+[K
+        [34m/* Copy remaining elements of R[] if any */[39m[K
+        [33mwhile[39m (j < n2) {[K
+            arr[k] = R[j];[K
+            j++;[K
+            [34m//System.out.println("Took " + arr[k] + " from right array.");[39m[K
+            k++;[K
+        }[K
+[K
+        [34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[39m[K
+        [34m//System.out.println("New array: " + Arrays.toString(arr));[39m[K
+    }[K
+[K
+"MergeSort.java" [dos] 118L, 3420C written                                                              11,3-10       15%[K
+[30m[42m[0] 0:sh*                                                                                                                                                                         "CF165-18" 09:44 06-Nov-18(B[m[3;10H[?12l[?25h[?1h=[1;68r[H[K
+[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1B[K[1;5H[34m// Second subarray is arr[m+1..r]
+[39m    [32mprivate[39m [32mstatic[39m [32mvoid[39m merge([32mint[39m arr[], [32mint[39m l, [32mint[39m m, [32mint[39m r) {[3;9H[34m//System.out.println("\n-- NEW MERGE --\nl=" + l + " m=" + m + " r=" + r);[4;9H// Find sizes of two subarrays to be merged[5;9H[32mint[39m n1 = m - l + [31m1[39m;[6;9H[32mint[39m n2 = r - m;[7;9H[34m//System.out.println("Sub-array sizes: " + n1 + ", " + n2);[9;9H/* Create temp arrays */[10;9H[32mint[39m L[] = [33mnew[39m [32mint[39m[n1];[11;9H[32mint[39m R[] = [33mnew[39m [32mint[39m[n2];[13;9H[34m/*Copy data to temp arrays*/[14;9H[33mfor[39m ([32mint[39m i=[31m0[39m; i<n1; i++) {[15;13HL[i] = arr[l+i];[16;13H[34m//L[i] = arr[l];[17;9H[39m}[18;9H[33mfor[39m ([32mint[39m j=[31m0[39m; j<n2; j++) {[19;13HR[j] = arr[m+[31m1[39m+j];[20;13H[34m//R[j] = arr[m+j];[21;9H[39m}[23;9H[34m//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arr[1;69r[H[23;85H[?25l(B[m[1;68r[H[23;85H[34mays.toString(R) + " from " + Arrays.toString(arr));[25;9H/* Merge the temp arrays */[27;9H// Initial indexes of first and second subarrays[28;9H[32mint[39m i = [31m0[39m, j = [31m0[39m;[30;9H[34m// Initial index of merged subarry array[31;9H//int k = l-1;[32;9H[32mint[39m k = l;[33;9H[33mwhile[39m (i < n1 && j < n2) {[34;13H[33mif[39m (L[i] <= R[j]) {[35;17Harr[k] = L[i];[36;17Hi++;[37;17H[34m//System.out.println("Took " + arr[k] + " from left array.");[38;13H[39m}[39;13H[33melse[39m {[40;17Harr[k] = R[j];[41;17Hj++;[42;17H[34m//System.out.println("Took " + arr[k] + " from right array.");[43;13H[39m}[44;13Hk++;[45;9H}[47;9H[34m/* Copy remaining elements of L[] if any */[48;9H[33mwhile[39m (i < n1) {[49;13Harr[k] = L[i];[50;13Hi++;[51;13H[34m//System.out.println("Took " + arr[k] + " from left array.");[52;13H[39mk++;[53;9H}[55;9H[34m/* Copy remaining elements of R[] if any */[56;9H[33mwhile[39m (j < n2) {[57;13Harr[k] = R[j];[58;13Hj++;[59;13H[34m/[1;69r[H[59;14H(B[m[1;68r[H[59;14H[34m/System.out.println("Took " + arr[k] + " from right array.");[60;13H[39mk++;[61;9H}[63;9H[34m//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));[64;9H//System.out.println("New array: " + Arrays.toString(arr));
+[39m    }[67;5H[34m// Main function that sorts arr[l..r] using[68;187H[39m11,3-10[7C15%[1;69r[H[3;10H[?12l[?25h[?25l[69;1H[30m[42m[0] 0:vim*                                                                                                                                                                        "CF165-18" 09:44 06-Nov-18(B[m[3;10H[?12l[?25h[1;67r[H[33M[1;68r[35;5H[34m// merge()
+[39m    [32mprivate[39m [32mstatic[39m [32mvoid[39m sort([32mint[39m arr[], [32mint[39m l, [32mint[39m r) {[37;9H[33mif[39m (l < r) {[38;13H[34m// Find the middle point[39;13H[32mint[39m m = (l+r)/[31m2[39m;[41;13H[34m// Sort first and second halves[42;13H[39msort(arr, l, m);[43;13Hsort(arr , m+[31m1[39m, r);[45;13H[34m// Merge the sorted halves[46;13H[39mmerge(arr, l, m, r);[47;9H}
+    }[50;5H[34m/* A utility function to print array of size n */
+[39m    [32mstatic[39m [32mvoid[39m printArray([32mint[39m arr[]) {[52;9H[32mint[39m n = arr.length;[53;9H[33mfor[39m ([32mint[39m i=[31m0[39m; i<n; ++i)[54;13HSystem.out.print(arr[i] + [31m" "[39m);[55;9HSystem.out.println();
+    }[58;5H[34m// Driver method
+[39m    [32mpublic[39m [32mstatic[39m [32mvoid[39m main(String args[]) {[60;13H[32mint[39m arr[] = {[31m12[39m, [31m11[39m, [31m13[39m, [31m5[39m, [31m6[39m, [31m7[39m};[61;13H[33mif[39m( args.length [1;69r[H[61;29H[?25l[1;68r[H[61;29H> [31m0[39m ) {[62;17Harr = [33mnew[39m [32mint[39m[args.length];[63;17H[33mfor[39m( [32mint[39m i=[31m0[39m; i<args.length; i++ ) {[64;21Harr[i] = Integer.parseInt(args[i]);[65;17H}[66;13H}[68;187H[K44,17[9C80%[1;69r[H[3;17H[?12l[?25h[68;187H[K[1;68r[H[68d:[1;69r[H[68;2H[?25l
+[30m[42m[0] 0:vim*                                                                                                                                                                        "CF165-18" 09:45 06-Nov-18(B[m[68;2H[?12l[?25h[1;68r[H[68;2Hx[1;69r[H[68;3H[?25l[K[Hsalibah@CF165-18:~/Documents/CS241Repo/lab4$ vim Mergesort.java[K
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ ls[K
+MergeSort.class  MergeSort.java  typescript  typescript.timing[K
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ vim MergeSort.java                                      [K
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ vim MergeSort.java[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[6d[?12l[?25h[?1l>[1;68r[H[5Bsalibah@CF165-18:~/Documents/CS241Repo/lab4$ [1;69r[H[6;46H[?25l[69;1H[30m[42m[0] 0:bash*                                                                                                                                                                       "CF165-18" 09:45 06-Nov-18(B[m[6;46H[?12l[?25h[1;68r[H[6;46Hlogout[1;69r[H[6B[1;69r(B[m[?1l>[H[2J]112[?12l[?25h[?1000l[?1002l[?1006l[?1005l[?1049l[exited]
+salibah@CF165-18:~/Documents/CS241Repo/lab4$ exit
+
+Script done on Tue 06 Nov 2018 09:45:05 AM PST
