@@ -28,7 +28,8 @@ class MergeSort
         int i = 0, j = 0;
 
         // Initial index of merged subarry array
-        int k = l-1;
+        //int k = l-1;
+	int k = l;
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
@@ -40,6 +41,7 @@ class MergeSort
             }
             k++;
         }
+	//k++;
 
         /* Copy remaining elements of L[] if any */
         while (i < n1) {
