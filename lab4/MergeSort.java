@@ -1,13 +1,18 @@
 /* Java program for Merge Sort */
+
+import java.util.Arrays;
+
 class MergeSort
 {
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
     // Second subarray is arr[m+1..r]
     private static void merge(int arr[], int l, int m, int r) {
+	//System.out.println("\n-- NEW MERGE --\nl=" + l + " m=" + m + " r=" + r);
         // Find sizes of two subarrays to be merged
-        int n1 = m - l;
+        int n1 = m - l + 1;
         int n2 = r - m;
+	//System.out.println("Sub-array sizes: " + n1 + ", " + n2);
 
         /* Create temp arrays */
         int L[] = new int[n1];
@@ -16,11 +21,14 @@ class MergeSort
         /*Copy data to temp arrays*/
         for (int i=0; i<n1; i++) {
             L[i] = arr[l+i];
+	    //L[i] = arr[l];
         }
         for (int j=0; j<n2; j++) {
             R[j] = arr[m+1+j];
+	    //R[j] = arr[m+j];
         }
-
+	
+	//System.out.println("Merging L[]=" + Arrays.toString(L) + " and R[]=" + Arrays.toString(R) + " from " + Arrays.toString(arr));
 
         /* Merge the temp arrays */
 
@@ -34,28 +42,34 @@ class MergeSort
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
+		//System.out.println("Took " + arr[k] + " from left array.");
             }
             else {
                 arr[k] = R[j];
                 j++;
+		//System.out.println("Took " + arr[k] + " from right array.");
             }
             k++;
-        }
-	//k++;
+        }	
 
         /* Copy remaining elements of L[] if any */
         while (i < n1) {
             arr[k] = L[i];
             i++;
-            k++;
+	    //System.out.println("Took " + arr[k] + " from left array.");
+	    k++;
         }
 
         /* Copy remaining elements of R[] if any */
         while (j < n2) {
             arr[k] = R[j];
             j++;
-            k++;
+	    //System.out.println("Took " + arr[k] + " from right array.");
+	    k++;
         }
+
+	//System.out.println("New array: " + Arrays.toString(Arrays.copyOfRange(arr, k, r)));
+	//System.out.println("New array: " + Arrays.toString(arr));
     }
 
     // Main function that sorts arr[l..r] using
