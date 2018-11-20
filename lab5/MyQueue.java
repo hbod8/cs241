@@ -20,9 +20,9 @@ public class MyQueue {
 	}
 	
 	// add a data item at the tail of the queue
-	public boolean enqueue(DataItem data) {
+	public boolean enqueue(DataItem data) throws Exception {
 		if (entries == size)
-			return false;
+			throw new Exception("Queue is full.");
 			
 		queue[tail] = data;
 		
@@ -38,9 +38,9 @@ public class MyQueue {
 	}
 
 	// remove data item from the head of the queue
-	public DataItem dequeue() {
+	public DataItem dequeue() throws Exception {
 		if (entries == 0)
-			return null;
+			throw new Exception("No elements in queue.");
 			
 		DataItem data = queue[head];
 		
@@ -71,19 +71,31 @@ public class MyQueue {
 		data[2] = new DataItem(81, 46, "Bastion");
 		data[3] = new DataItem(0, 0, "nothing");
 		
-		if (q.dequeue() == null)
-			System.out.println("Cannot remove from an empty queue");
+		try {
+			q.dequeue();
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
 		
 		for (int i = 0; i < data.length; i++) {
 			System.out.println("adding " + data[i]);
-			if (q.enqueue(data[i]))
+			try {
+				q.enqueue(data[i]);
 				System.out.println(q);
-			else
-				System.out.println(" failed: queue full");
+			}
+			catch (Exception e) {
+				System.out.println(e);
+			}
 		}
 
 		for (int i = 0; i < data.length; i++) {
+			try {
 				System.out.println("Dequeued " + q.dequeue());
+			}
+			catch (Exception e) {
+				System.out.println(e);
+			}
 		}
 	}
 }
