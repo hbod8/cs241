@@ -23,7 +23,7 @@ import java.util.*;
 public class Assignment2 {
 
 	public static void addWords(String filename, HashTable table) {
-	
+		// System.out.println("Hello world");	
 		// open the file
 		BufferedReader in;
 		try {
@@ -52,7 +52,7 @@ public class Assignment2 {
 			// add each word to the hash table
 			while (tokenizer.hasMoreTokens()) {
 				String word = tokenizer.nextToken();
-				//System.out.println("adding " + word);
+				//stem.out.println("adding " + word);
 				table.add(word);
 			}
 			
@@ -86,9 +86,9 @@ public class Assignment2 {
 		// extract each word and add it to the hash table
 		for (int file = 1; file < args.length; file++){
 			addWords(args[file], table);
-        }
-        System.out.println("Average number of successful probes: " + table.get_avg_successful_search());
-        System.out.println("Average number of unsuccessful probes: " + table.get_avg_unsuccessful_search());		
+        	}
+        	System.out.println("Average number of successful probes: " + table.get_avg_successful_search());
+        	System.out.println("Average number of unsuccessful probes: " + table.get_avg_unsuccessful_search());		
 		// display the top howmany words
 		for (int i = 1; i <= howmany; i++) {
 			DataItem data = table.highcount();
