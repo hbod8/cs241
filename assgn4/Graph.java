@@ -1,8 +1,7 @@
 
-
+import java.util.*;
 
 public class Graph {
-    
     final int SIZE = 97;
     
     Vertex[] table = new Vertex[SIZE];
