@@ -74,8 +74,8 @@ public class Lab6 extends JFrame implements ActionListener {
         else if (e.getActionCommand() == "Open") // ---> Follow instructions for Stage 6
             readFile();
         // Task 13 : Add actionPerformed for "Save"
-        // else if (e.getActionCommand() == "Save") // ---> Follow instructions for Stage 7
-        //     writeFile();
+        else if (e.getActionCommand() == "Save") // ---> Follow instructions for Stage 7
+            writeFile();
 
     }
     
@@ -97,6 +97,17 @@ public class Lab6 extends JFrame implements ActionListener {
     // Write to a file in Stage 7
     private void writeFile() {
         //Task 14 --> Follow instructions for Stage 7
+	JFileChooser chooser = new JFileChooser();
+	int option = chooser.showSaveDialog(this);
+	if (option == JFileChooser.APPROVE_OPTION) {
+		try {
+			String filename = chooser.getName(chooser.getSelectedFile());
+			Files.write(Paths.get(filename), text.getText().getBytes());
+		}
+		catch (IOException e) {
+			System.out.println("cannot save the file: " + e);
+		}
+	}
     }
     public static void main(String[] args) {
         Lab6 frame = new Lab6();
