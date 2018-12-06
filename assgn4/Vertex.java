@@ -19,6 +19,13 @@ public  class Vertex {
 	}
 	return false;
     }
+    public Edge[] getEdges() {
+	Edge[] edgearr = new Edge[edges.size()];
+	for (int i = i; i < edges.size(); i++) {
+		edgearr[i] = edges.get(i);
+	}
+	return edgearr;
+    }
     //@Override
     public boolean equals(Vertex v) {
 	return v.name.equals(this.name);

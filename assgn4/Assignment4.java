@@ -4,7 +4,7 @@
 
 import java.util.*;
 import java.io.*;
-
+import java.util.*;
 
 public class Assignment4 {
 
@@ -14,6 +14,12 @@ public class Assignment4 {
 	// should be able to read input from a file
 	// specified in the first command-line argument
 	// TODO    
+	try {
+	    Scanner inputFile = new Scanner(new File(input));
+	    while (inputFile.hasNextLine()) {
+		
+	    }
+	}
     }
 
 
