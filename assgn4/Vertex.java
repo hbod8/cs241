@@ -2,6 +2,8 @@ import java.util.LinkedList;
 
 
 public  class Vertex {
+    public int distance;
+    public boolean visited = false;
     public final String name;
     private LinkedList<Edge> edges = new LinkedList<Edge>();
     public Vertex (String town) {

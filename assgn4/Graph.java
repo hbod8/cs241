@@ -69,7 +69,6 @@ public class Graph {
     	int startingIndex = find(start);
     	
     	
-    	
     	//Create heap (Build Heap Look at heap slides) with all connecting nodes as infinity dis 
     	//While loop/for
     	//Call extract min (recursive) and return vertex. Now found start to start
