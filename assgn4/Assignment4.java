@@ -10,16 +10,26 @@ public class Assignment4 {
 
     private static Graph graph;
     
+    private static int edges;
+
     private static int buildGraph(String input) {
 	// should be able to read input from a file
 	// specified in the first command-line argument
 	// TODO    
 	try {
 	    Scanner inputFile = new Scanner(new File(input));
+	    graph = new Graph();
 	    while (inputFile.hasNextLine()) {
-		
+		    String line = inputFile.nextLine();
+		    String[] csvs = line.split(",");
+		    graph.insert(csvs[0], csvs[1], Integer.parseInt(csvs[2]));
+		    edges++;
 	    }
 	}
+	catch (IOException e) {
+	    System.out.println("Cannot read from file: " + e.toString());
+	}
+	return graph.SIZE;
     }
 
 
@@ -28,8 +38,14 @@ public class Assignment4 {
         // build the graph from the input file
         int count = buildGraph(args[0]);
         
-        System.out.println(count + " towns added to graph");
-        
+        System.out.println(count + " towns added to graph\n" + edges + " connections between those towns.");
+
+	Edge[] edges = graph.table[graph.find("Wagga Wagga")].getEdges();
+	for (int i = 0; i < edges.length; i++) {
+		System.out.println("Wagga Wagga is " + edges[i].distance + " away from " + edges[i].getVerticies()[1].name);
+	}
+	/*
+
         BufferedReader br = null;
         try {
             br = new BufferedReader(new InputStreamReader(System.in));
@@ -59,6 +75,7 @@ public class Assignment4 {
             graph.shortestPath(town1, town2);
         }
         
+	*/
 
     }
 

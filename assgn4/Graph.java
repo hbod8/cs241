@@ -25,10 +25,13 @@ public class Graph {
 	}
 	indexTown1 = find(town1);
 	indexTown2 = find(town2);
-	table[indexTown1].addEdge(new Edge(table[indexTown1], table[indexTown2], distance));
-	table[indexTown2].addEdge(new Edge(table[indexTown2], table[indexTown1], distance));
+	Edge edgeTown1 = new Edge(table[indexTown1], table[indexTown2], distance);
+	Edge edgeTown2 = new Edge(table[indexTown2], table[indexTown1], distance);
+	table[indexTown1].addEdge(edgeTown1);
+	table[indexTown2].addEdge(edgeTown2);
     }
-    private int find(String town) {
+    public int find(String town) {
+    //private int find(String town) {
 	    for (int i = 0; i < table.length; i++) {
 		    if (table[i] != null) {
 		    	if (table[i].name.equals(town)) {
@@ -41,25 +44,27 @@ public class Graph {
 
 
 
-    private void buildHeap(String start, MinHeap heap) {
+    /*private void buildHeap(String start, MinHeap heap) {
    	//TODO
 	//
 	 
-        heap.buildHeap();
+        //heap.buildHeap();
         
-    }
+    }*/
     
     private void showPath(String start, String finish) {
     
        //TODO
        //
-        System.out.println(first.town);
+       // System.out.println(first.town);
       
     }
 
     
     public void shortestPath(String start, String finish) {
-    
+    	
+	/*
+
         MinHeap heap = new MinHeap(Vertex.count);
         buildHeap(start, heap);
         
@@ -72,5 +77,6 @@ public class Graph {
         
         showPath(start, finish);
         
+	*/
     }
 }
