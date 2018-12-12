@@ -44,27 +44,51 @@ public class Graph {
 
 
 
-    /*private void buildHeap(String start, MinHeap heap) {
+    private void buildHeap(String start, MinHeap heap) {
    	//TODO
-	//
-	 
-        //heap.buildHeap();
+	Boolean [] visited = new Boolean [SIZE];
+    int [] distancesFromStart = new int [SIZE];
+	for (int i = 0; i < SIZE; i ++) {
+    		distancesFromStart[i] = 20000000; //2 million represents infinity
+    		visited[i] = false;
+    	}
+        heap.buildHeap();
         
-    }*/
+    }
     
     private void showPath(String start, String finish) {
     
        //TODO
        //
-       // System.out.println(first.town);
+       System.out.println(first.town);
       
     }
 
     
     public void shortestPath(String start, String finish) {
+    	int startingIndex = find(start);
     	
-	/*
-
+    	
+    	
+    	//Create heap (Build Heap Look at heap slides) with all connecting nodes as infinity dis 
+    	//While loop/for
+    	//Call extract min (recursive) and return vertex. Now found start to start
+    	//Update cost (recursive) of next edge to start
+    	//Heapify up the new edge node
+    	
+    	
+    	
+    	//Set the distances from start to all location to infinity and visited to false
+    	
+    	distancesFromStart[startingIndex] = 0;
+    	for (int i=0; i < SIZE; i++) {
+    		Edge [] edgeArr = table[startingIndex].getEdges();
+    		
+    	}
+    	
+    	
+    	
+    	/*
         MinHeap heap = new MinHeap(Vertex.count);
         buildHeap(start, heap);
         
@@ -72,11 +96,10 @@ public class Graph {
         
         while (heap.size() > 0) {
        		//TODO 
-        
         }
+        */
         
-        showPath(start, finish);
+        showPath(start, finish); //Recursive
         
-	*/
     }
 }
