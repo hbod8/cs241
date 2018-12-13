@@ -16,8 +16,7 @@ public class MinHeap {
 	visited = new boolean[SIZE];
 	distance = new int[SIZE];
 	for (int i = 0; i < SIZE; i++) {
-    		distance[i] = INFINITY;
-    		visited[i] = false;
+    		graph.table[i].distance = INFINITY;
     	}
     }
     
@@ -30,15 +29,16 @@ public class MinHeap {
     private void minHeapify(int root) {
     	int min = root, l = 2*root + 1, r = 2*root + 2;
 	
-	if (distance[l] < distance[min] && l < SIZE) {
+	if (graph.table[l].distance < graph.table[min].distance && l < SIZE) {
 		min = l;
 	}
 
-	if (distance[r] < distance[min] && r < SIZE) {
+	if (graph.table[r].distance < graph.table[min].distance && r < SIZE) {
 		min = r; 
 	}
 
 	if (min != root) {
+		/*
 		// swap distances
 		int tempDist = distance[root];
 		distance[root] = distance[min];
@@ -47,6 +47,7 @@ public class MinHeap {
 		boolean tempVisit = visited[root];
 		visited[root] = visited[min];
 		visited[min] = tempVisit;
+		*/
 		// swap Verticies
 		Vertex tempVert = graph.table[root];
 		graph.table[root] = graph.table[min];
@@ -56,7 +57,8 @@ public class MinHeap {
     }
 
     public void setStart(int i) {
-	distance[i] = 0;
+	graph.table[i].distance = 0;
+	/*
 	// swap distances
 	int tempDist = distance[0];
 	distance[0] = distance[i];
@@ -64,7 +66,8 @@ public class MinHeap {
 	// swap visited
 	boolean tempVisit = visited[0];
 	visited[0] = visited[i];
-	visited[i] = tempVisit;
+	visited[i] = visited[0];
+	*/
 	// swap Verticies
 	Vertex tempVert = graph.table[0];
 	graph.table[0] = graph.table[i];
@@ -75,4 +78,9 @@ public class MinHeap {
         return SIZE;
     }
 
+
+    public int extract() {
+	   Vertex temp = graph.table[0];
+	   graph.table[0] = graph.table[SIZE - 1];
+	   return temp;
 }

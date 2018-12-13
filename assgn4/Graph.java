@@ -69,6 +69,12 @@ public class Graph {
     	
     	MinHeap heap = new MinHeap(SIZE, this);
 	buildHeap(start, heap);
+	while (heap.size > 0) {
+	
+
+
+	}
+
     	
     	//Set the distances from start to all location to infinity and visited to false
     	
