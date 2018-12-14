@@ -38,13 +38,16 @@ public class Assignment4 {
         // build the graph from the input file
         int count = buildGraph(args[0]);
         
-        System.out.println(count + " towns added to graph\n" + edges + " connections between those towns.");
+        System.out.println(count + " towns expected " + graph.count + " towns added to graph\n" + edges + " connections between those towns.");
+	
+	//for (int i = 0; i < graph.table.length; i++) {
+	//	System.out.println(graph.table[i].name);
+	//}
 
 	Edge[] edges = graph.table[graph.find("Wagga Wagga")].getEdges();
 	for (int i = 0; i < edges.length; i++) {
 		System.out.println("Wagga Wagga is " + edges[i].distance + " away from " + edges[i].getVerticies()[1].name);
 	}
-	/*
 
         BufferedReader br = null;
         try {
@@ -75,7 +78,6 @@ public class Assignment4 {
             graph.shortestPath(town1, town2);
         }
         
-	*/
 
     }
 

@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Graph {
     final int SIZE = 97;
-    
+    public int count = 0;
     private int nextOpen = 0;
 
     Vertex[] table = new Vertex[SIZE];
@@ -18,10 +18,12 @@ public class Graph {
 	if (indexTown1 < 0) {
 		table[nextOpen] = new Vertex(town1);
 		nextOpen++;
+		count++;
 	}
 	if (indexTown2 < 0) {
 		table[nextOpen] = new Vertex(town2);
 		nextOpen++;
+		count++;
 	}
 	indexTown1 = find(town1);
 	indexTown2 = find(town2);
@@ -57,7 +59,17 @@ public class Graph {
        //System.out.println(first.town);
       
     }
-
+/*
+    public int minEdgeIndex(Vertex current) {
+	    int min = 0;
+	    for (int i = 1; current.getEdges().length; i++) {
+		    if (current.getEdges()[i].distance < current.getEdges()[min].distance) {
+			    min = i;
+		    }
+	    }
+	    return min;
+    }
+*/
     
     public void shortestPath(String start, String finish) {
     	
@@ -69,13 +81,22 @@ public class Graph {
     	
     	MinHeap heap = new MinHeap(SIZE, this);
 	buildHeap(start, heap);
-	while (heap.size > 0) {
-	
-
-
+	while (table[0].name != finish) {
+		for (int i = 0; i < table[0].getEdges().length; i++) {
+			// Distance initialized at infinity or preiously calculated.
+			int currentDistOfAdjNodeFromStart = table[0].getEdges()[i].getVerticies()[1].distance;
+			// Distance of current root node from the start of path.
+			int currentDistFromStart = table[0].distance;
+			// Distance from current node to adjacent node (edge distance);
+			int distFromCurToAdj = table[0].getEdges()[i].distance;
+			// if distance from current node to adjacent node is less than the adjacents distance from start then replace with shorter path.
+			if ((currentDistFromStart + distFromCurToAdj) < currentDistOfAdjNodeFromStart) {
+				// replace with new shorter path.
+				table[0].getEdges()[i].getVerticies()[1].distance = currentDistFromStart + distFromCurToAdj;
+			}
+		}
+		heap.extract();
 	}
-
-    	
     	//Set the distances from start to all location to infinity and visited to false
     	
 	/*
@@ -99,6 +120,5 @@ public class Graph {
         */
         
         showPath(start, finish); //Recursive
-        
     }
 }

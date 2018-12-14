@@ -2,38 +2,40 @@ import java.util.*;
 
 
 public class MinHeap {
-    private boolean[] visited;
-    private int[] distance;
+    //private boolean[] visited;
+    //private int[] distance;
     private final int INFINITY = Integer.MAX_VALUE;
     private final int SIZE;
+    private int visitedSize;
     private Graph graph;
     public MinHeap(int size, Graph g) {
 	this.SIZE = size;
+	visitedSize = size;
 	this.graph = g;
     }
 
     public void buildHeap() {
-	visited = new boolean[SIZE];
-	distance = new int[SIZE];
+	//visited = new boolean[SIZE];
+	//distance = new int[SIZE];
 	for (int i = 0; i < SIZE; i++) {
-    		graph.table[i].distance = INFINITY;
+		if (graph.table[i] != null)
+    			graph.table[i].distance = INFINITY;
     	}
     }
     
     public void minHeapify() {
-        for (int i = SIZE/2-1; i >= 0; i--)
+        for (int i = visitedSize/2-1; i >= 0; i--)
             minHeapify(i);    
     }
 
 
     private void minHeapify(int root) {
     	int min = root, l = 2*root + 1, r = 2*root + 2;
-	
-	if (graph.table[l].distance < graph.table[min].distance && l < SIZE) {
+	if (graph.table[l].distance < graph.table[min].distance && l < visitedSize) {
 		min = l;
 	}
 
-	if (graph.table[r].distance < graph.table[min].distance && r < SIZE) {
+	if (graph.table[r].distance < graph.table[min].distance && r < visitedSize) {
 		min = r; 
 	}
 
@@ -79,8 +81,18 @@ public class MinHeap {
     }
 
 
-    public int extract() {
+    public void extract() {
+	  // int end = SIZE - 1;
+	  //
+	  //
 	   Vertex temp = graph.table[0];
-	   graph.table[0] = graph.table[SIZE - 1];
-	   return temp;
+
+
+
+	   graph.table[0] = graph.table[visitedSize];
+	   graph.table[visitedSize] = temp;
+	   graph.table[visitedSize].visited = true;
+	   visitedSize--;
+	   minHeapify();
+    }
 }
