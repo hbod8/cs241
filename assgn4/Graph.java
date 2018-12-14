@@ -59,11 +59,12 @@ public class Graph {
 		System.out.println(start + " (" + table[find(start)].distance + ")");
 	}
     }
-    
+    private Vertex last = null;
     public void shortestPath(String start, String finish) {
     	MinHeap heap = new MinHeap(SIZE, this);
 	buildHeap(start, heap);
-	while (table[0].name != finish) {
+	while (!table[0].name.equals(finish)) {
+		//System.out.println("Lowest distance town is " + table[0].name);
 		for (int i = 0; i < table[0].getEdges().length; i++) {
 			// Distance initialized at infinity or preiously calculated.
 			int currentDistOfAdjNodeFromStart = table[0].getEdges()[i].getVerticies()[1].distance;
@@ -74,11 +75,20 @@ public class Graph {
 			// if distance from current node to adjacent node is less than the adjacents distance from start then replace with shorter path.
 			if ((currentDistFromStart + distFromCurToAdj) < currentDistOfAdjNodeFromStart) {
 				// replace with new shorter path.
+				//table[0].distance = currentDistFromStart + distFromCurToAdj;
 				table[0].getEdges()[i].getVerticies()[1].distance = currentDistFromStart + distFromCurToAdj;
 				table[0].getEdges()[i].getVerticies()[1].previous = table[0];
+				//System.out.println("Calculated new distance for " + table[0].getEdges()[i].getVerticies()[1].name + " of " + (currentDistFromStart + distFromCurToAdj));
+			}
+			else {
+				//System.out.println("Did not calculate new distance between " + table[0].name + " and " + table[0].getEdges()[i].getVerticies()[1].name + " (" + currentDistFromStart + "+" + distFromCurToAdj + "->" + currentDistOfAdjNodeFromStart + ").");
 			}
 		}
+		last = table[0];
 		heap.extract();
+	}
+	if (table[0].name.equals(finish)) {
+		table[0].previous = last;
 	}
         showPath(start, finish);
     }

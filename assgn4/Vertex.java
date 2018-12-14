@@ -14,7 +14,7 @@ public  class Vertex {
    
    //Adds an edge to the linked list of the Vertex
     public boolean addEdge(Edge e) {
-	System.out.println("adding " + e.getVerticies()[0].name + " --" + e.distance + "-> " + e.getVerticies()[1].name);
+	//System.out.println("adding " + e.getVerticies()[0].name + " --" + e.distance + "-> " + e.getVerticies()[1].name);
 	edges.add(e);
 	return true;
     }

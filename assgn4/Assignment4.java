@@ -36,10 +36,11 @@ public class Assignment4 {
         System.out.println(count + " towns expected " + graph.count + " towns added to graph\n" + edges + " connections between those towns.");
 
 	Edge[] edges = graph.table[graph.find("Wagga Wagga")].getEdges();
+	/*
 	for (int i = 0; i < edges.length; i++) {
 		System.out.println("Wagga Wagga is " + edges[i].distance + " away from " + edges[i].getVerticies()[1].name);
 	}
-
+	*/
         BufferedReader br = null;
         try {
             br = new BufferedReader(new InputStreamReader(System.in));
