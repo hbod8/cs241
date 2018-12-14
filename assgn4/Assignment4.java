@@ -12,10 +12,7 @@ public class Assignment4 {
     
     private static int edges;
 
-    private static int buildGraph(String input) {
-	// should be able to read input from a file
-	// specified in the first command-line argument
-	// TODO    
+    private static int buildGraph(String input) {    
 	try {
 	    Scanner inputFile = new Scanner(new File(input));
 	    graph = new Graph();
@@ -34,15 +31,9 @@ public class Assignment4 {
 
 
     public static void main (String args[]) {
-    
-        // build the graph from the input file
         int count = buildGraph(args[0]);
         
         System.out.println(count + " towns expected " + graph.count + " towns added to graph\n" + edges + " connections between those towns.");
-	
-	//for (int i = 0; i < graph.table.length; i++) {
-	//	System.out.println(graph.table[i].name);
-	//}
 
 	Edge[] edges = graph.table[graph.find("Wagga Wagga")].getEdges();
 	for (int i = 0; i < edges.length; i++) {
