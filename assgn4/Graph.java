@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public class Graph {
@@ -11,9 +10,13 @@ public class Graph {
     public Graph() {
 
     }
+    
+    //Adds a town to the graph
     public void insert(String town1, String town2, int distance) {
 	int indexTown1 = find(town1);
 	int indexTown2 = find(town2);
+	
+	//Makes sure that we add each town regardless of if they are first or second
 	if (indexTown1 < 0) {
 		table[nextOpen] = new Vertex(town1);
 		nextOpen++;
@@ -31,6 +34,8 @@ public class Graph {
 	table[indexTown1].addEdge(edgeTown1);
 	table[indexTown2].addEdge(edgeTown2);
     }
+    
+    //Returns the index of a town in the table array
     public int find(String town) {
 	    for (int i = 0; i < table.length; i++) {
 		    if (table[i] != null) {
@@ -43,13 +48,12 @@ public class Graph {
     }
 
 
-
     private void buildHeap(String start, MinHeap heap) {
-   	//TODO
         heap.buildHeap();
         heap.setStart(this.find(start));
     }
     
+    //Prints path backwards from finish to start
     private void showPath(String start, String finish) {
 	if (!start.equals(finish)) {
 		System.out.println(finish + " (" + table[find(finish)].distance + ")");
