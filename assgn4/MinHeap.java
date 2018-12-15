@@ -11,7 +11,8 @@ public class MinHeap {
 	visitedSize = size - 1;
 	this.graph = g;
     }
-
+    
+    //Sets distances to infinity
     public void buildHeap() {
 	for (int i = 0; i < SIZE; i++) {
 		if (graph.table[i] != null)
@@ -47,6 +48,8 @@ public class MinHeap {
     }
 
     ///*
+    
+    //Sorts heap
     private void minHeapify(int current, int size) {
 	int min = current, l = 2*current + 1, r = 2*current + 2;
 	//System.out.println ("root: " + current + " l: " + l + " r: " + r);
@@ -65,6 +68,8 @@ public class MinHeap {
 	}
     }
     //*/
+    
+    //Sets the first town's distance to zero instead of infinity and moves it to the start of the heap
     public void setStart(int i) {
 	graph.table[i].distance = 0;
 	Vertex tempVert = graph.table[0];
@@ -76,7 +81,7 @@ public class MinHeap {
         return SIZE;
     }
 
-
+    //Updates the heap by swapping the first and last elements and then reducing the unused size of the array by 1
     public void extract() {
 	   Vertex temp = graph.table[0];
 	   graph.table[0] = graph.table[visitedSize];
